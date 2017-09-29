@@ -20,8 +20,9 @@ namespace Fortune_Teller
 
 
             //Gathering information.
-            Console.WriteLine("You are wandering through the desert and come across a lamp,\nyou clean the lamp and a Jinn appears. \n\nThe Jinn asks you for your name.");
+            Console.WriteLine("You are wandering through the desert and come across a lamp,\nyou clean off the dirt and a Jinn appears. \n\nThe Jinn asks you for your name.");
             string firstName = Console.ReadLine().Trim();
+            
 
             Console.WriteLine("The Jinn asks you for your family name.");
             string lastName = Console.ReadLine().Trim();
@@ -34,13 +35,23 @@ namespace Fortune_Teller
 
             Console.WriteLine("The Jinn asks you for your favorite color.");
             string color = Console.ReadLine().ToLower();
+
+            //Helping with the colors.
             if (color == "help")
             {
                 Console.WriteLine("The Jinn let's you choose between Red, Orange, Yellow, Green, Blue, Indigo and Violet.");
+                color = Console.ReadLine().ToLower();
             }
-            
+
             Console.WriteLine("The Jinn asks for the number of siblings.");
             int sibling = int.Parse(Console.ReadLine());
+            
+            //Quitting the application.
+            if (firstName.ToLower() == "quit" || lastName.ToLower()=="quit" || color.ToLower()=="quit"|| month.ToString().ToLower()=="quit"||age.ToString().ToLower()=="quit")
+            {
+                Console.WriteLine($" {firstName} nobody likes a quitter.");
+                //Environment.Exit();
+            }
 
             //Retirement
             if (age % 2 == 0)
@@ -55,7 +66,7 @@ namespace Fortune_Teller
             //VacationHome
             if (sibling == 0)
             {
-                vacationHome = "near the beach";
+                vacationHome = "near the sea";
             }
 
             else if (sibling == 1)
@@ -68,7 +79,7 @@ namespace Fortune_Teller
             }
             else if (sibling >= 3)
             {
-                vacationHome = "in a large city";
+                vacationHome = "somewhere in a large city";
             }
             else
             {
@@ -76,14 +87,13 @@ namespace Fortune_Teller
             }
 
             //Transportation
-            
             if (color.ToLower() == "red")
             {
                 transportMethod = "horse";
             }
             else if (color.ToLower() == "car")
             {
-                transportMethod = "ship";
+                transportMethod = "sail boat";
             }
             else if (color.ToLower() == "magic carpet")
             {
@@ -103,12 +113,11 @@ namespace Fortune_Teller
             }
             else if (color.ToLower() == "violet")
             {
-                transportMethod = "bus";
+                transportMethod = "motor home";
             }
-
             else
             {
-                transportMethod = "Walking";
+                transportMethod = "tricycle";
             } 
 
             //Savings
@@ -136,9 +145,10 @@ namespace Fortune_Teller
                     money = 0.00;
                     break;
             }
+
             //Output
-            Console.WriteLine("The Jinn looks up at you and begins to speak.");
-            Console.WriteLine($"\"You {firstName} {lastName} will go into retirement in {retiringIn} years with ${money} in the bank, a vacation home {vacationHome} and with a {transportMethod} to use as you please.\"");
+            Console.WriteLine("The Jinn looks over and starts to speak.");
+            Console.WriteLine($"\"You {firstName} {lastName} will go into retirement in {retiringIn} years of time with ${money} that you have saved, a second home {vacationHome} and a {transportMethod} to use as you please.\"");
 
             
 
