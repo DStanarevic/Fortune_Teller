@@ -12,30 +12,63 @@ namespace Fortune_Teller
 
         static void Main(string[] args)
         {
+
             //Declaring my variables.
             int retiringIn;
+            int age;
+            int month;
+            int sibling;
             double money;
             string vacationHome;
             string transportMethod;
-
-
+            
             //Gathering information.
+            //First Namewith Quit
             Console.WriteLine("You are wandering through the desert and come across a lamp,\nyou clean off the dirt and a Jinn appears. \n\nThe Jinn asks you for your name.");
             string firstName = Console.ReadLine().Trim();
-            
+            if (firstName.ToLower() == "quit")
+            {
+                Console.WriteLine($"{firstName} nobody likes a quitter.");
+                Environment.Exit(0);
+            }
 
+            //Last Name with Quit
             Console.WriteLine("The Jinn asks you for your family name.");
             string lastName = Console.ReadLine().Trim();
+            if (lastName.ToLower() == "quit")
+            {
+                Console.WriteLine($"{firstName} nobody likes a quitter.");
+                Environment.Exit(0);
+            }
 
+            //Age with Quit.
             Console.WriteLine("The Jinn asks how many years you have lived.");
-            int age = int.Parse(Console.ReadLine());
+            string ageInput = Console.ReadLine();
+            if (ageInput.ToLower() == "quit")
+            {
+                Console.WriteLine($"{firstName} nobody likes a quitter.");
+                Environment.Exit(0);
+            }
+            age = int.Parse(ageInput);
 
+            //Month with Quit.
             Console.WriteLine("The Jinn asks for the month that you were born in.");
-            int month = int.Parse(Console.ReadLine());
+            string monthInput = Console.ReadLine();
+            if (monthInput.ToLower() == "quit")
+            {
+                Console.WriteLine($"{firstName} nobody likes a quitter.");
+                Environment.Exit(0);
+            }
+            month = int.Parse(monthInput);
 
+            //Favorite color with Quit.
             Console.WriteLine("The Jinn asks you for your favorite color.");
             string color = Console.ReadLine().ToLower();
-
+            if (color.ToLower() == "quit")
+            {
+                Console.WriteLine($"{firstName} nobody likes a quitter.");
+                Environment.Exit(0);
+            }
             //Helping with the colors.
             if (color == "help")
             {
@@ -43,17 +76,17 @@ namespace Fortune_Teller
                 color = Console.ReadLine().ToLower();
             }
 
-            Console.WriteLine("The Jinn asks for the number of siblings.");
-            int sibling = int.Parse(Console.ReadLine());
-            
-            //Quitting the application.
-            if (firstName.ToLower() == "quit" || lastName.ToLower()=="quit" || color.ToLower()=="quit"|| month.ToString().ToLower()=="quit"||age.ToString().ToLower()=="quit")
+            //Siblings with Quit.
+            Console.WriteLine("The Jinn asks how many siblings you have.");
+            string siblingInput = Console.ReadLine();
+            if (siblingInput.ToLower() == "quit")
             {
-                Console.WriteLine($" {firstName} nobody likes a quitter.");
-                //Environment.Exit();
+                Console.WriteLine($"{firstName} nobody likes a quitter.");
+                Environment.Exit(0);
             }
+            sibling = int.Parse(siblingInput);
 
-            //Retirement
+            //Retirement calculation.
             if (age % 2 == 0)
             {
                 retiringIn = 5;
@@ -148,11 +181,8 @@ namespace Fortune_Teller
 
             //Output
             Console.WriteLine("The Jinn looks over and starts to speak.");
-            Console.WriteLine($"\"You {firstName} {lastName} will go into retirement in {retiringIn} years of time with ${money} that you have saved, a second home {vacationHome} and a {transportMethod} to use as you please.\"");
-
-            
-
-        }
+            Console.WriteLine($"\n\"{firstName} {lastName} will go into retirement in {retiringIn} years of time with the ${money} that you have saved. You will have a second home {vacationHome}\nwith a {transportMethod} to use as you please.\"");
+            }
     }
 }
 
